@@ -19,13 +19,14 @@ public class Microiranism : MonoBehaviour
     public bool Generated = false;
     void Start()
     {
-        
+        TimeAlive = 0f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         TimeAlive += Time.deltaTime;
+        if (this!= null)
         MoveMicroalgea();
         GenerateMicroalgea();
     }
@@ -37,8 +38,8 @@ public class Microiranism : MonoBehaviour
             Instantiate(Microalgea, this.transform.position + new Vector3 (-0.1f,0,0), Quaternion.identity);
             Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
            
-            Destroy(this);
-            Generated = false;
+            Destroy(gameObject);
+            Generated = true;
         }
     }
     //x:-8.5 to 8.5; y_day:3- -1.8 , y_night: -1.8 - -4.4 
@@ -78,15 +79,17 @@ public class Microiranism : MonoBehaviour
 
             if (!Moved)
             {
-                if (gameManager.Brightness <= 0.4f)
+                if (gameManager.Brightness <= 0.4f && this!= null)
                 {
-                    this.transform.DOMove(Destination, Random.Range(1.5f, 5f)).SetEase(Ease.InSine);
-                    Moved = true;
+                    transform.position = Vector3.MoveTowards(transform.position, Destination, Random.Range(0.01f, 0.05f) * Random.Range(1.5f, 5f));
+                    //this.transform.DOMove(Destination, Random.Range(1.5f, 5f)).SetEase(Ease.InSine);
+                    
                 }
-                if (gameManager.Brightness > 0.4f)
+                if (gameManager.Brightness > 0.4f && this != null)
                 {
-                    this.transform.DOMove(Destination, Random.Range(3f, 6f)).SetEase(Ease.InSine);
-                    Moved = true;
+                    transform.position = Vector3.MoveTowards(transform.position, Destination, Random.Range(0.01f, 0.03f) * Random.Range(1.5f, 5f));
+                    //this.transform.DOMove(Destination, Random.Range(3f, 6f)).SetEase(Ease.InSine);
+                   
                 }
             }
 
