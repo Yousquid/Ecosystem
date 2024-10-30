@@ -19,15 +19,26 @@ public class Microiranism : MonoBehaviour
     public bool Generated = false;
     public bool SpeedRandomed = false;
     public float Speed;
+    public float Life_duration;
     void Start()
     {
         TimeAlive = 0f;
+        this.transform.localScale = new Vector3(0.016f, 0.016f, 0.016f);
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        TimeAlive += Time.deltaTime;
+        
+        if (gameManager.Brightness <= 0.4f)
+        {
+            TimeAlive += Time.deltaTime;
+        }
+        if (gameManager.Brightness > 0.4f)
+        {
+            TimeAlive += Time.deltaTime/4 ;
+        }
         if (this!= null)
         MoveMicroalgea();
         GenerateMicroalgea();
@@ -35,7 +46,7 @@ public class Microiranism : MonoBehaviour
 
     public void GenerateMicroalgea()
     {
-        if (gameManager.Brightness <= 0.3f && TimeAlive > 10f && !Generated)
+        if ( TimeAlive > Life_duration && !Generated)
         {
             Instantiate(Microalgea, this.transform.position + new Vector3 (-0.1f,0,0), Quaternion.identity);
             Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
@@ -56,6 +67,7 @@ public class Microiranism : MonoBehaviour
             if (!Randomed)
             {
                 Destination = Randoming();
+                Life_duration = Random.Range(10f, 15f);
                 Randomed = true;
                 isMoving = true;
             }
@@ -148,6 +160,11 @@ public class Microiranism : MonoBehaviour
 
         return new Vector3(0, 0, 0);
 
+    }
+
+    public void GrowUpScale()
+    { 
+        //this.transform.localScale += new Vector3 ()
     }
 
 }
