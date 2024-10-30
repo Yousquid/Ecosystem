@@ -17,6 +17,8 @@ public class Microiranism : MonoBehaviour
     public Vector3 CurrentPosition;
     public float TimeAlive;
     public bool Generated = false;
+    public bool SpeedRandomed = false;
+    public float Speed;
     void Start()
     {
         TimeAlive = 0f;
@@ -77,25 +79,35 @@ public class Microiranism : MonoBehaviour
             //    this.transform.position += new Vector3(0, Random.Range(-0.01f, -0.05f), 0);
             //}
 
-            if (!Moved)
-            {
-                if (gameManager.Brightness <= 0.4f && this!= null)
+                if (gameManager.Brightness <= 0.4f && gameObject!= null)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, Destination, Random.Range(0.01f, 0.05f) * Random.Range(1.5f, 5f));
+                if (!SpeedRandomed)
+                {
+                    Speed = Random.Range(1f, 5f);
+                    SpeedRandomed = true;
+                }
+                    transform.position = Vector3.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
                     //this.transform.DOMove(Destination, Random.Range(1.5f, 5f)).SetEase(Ease.InSine);
-                    
+                    //Moved = true;
+
                 }
-                if (gameManager.Brightness > 0.4f && this != null)
+                if (gameManager.Brightness > 0.4f && gameObject != null)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, Destination, Random.Range(0.01f, 0.03f) * Random.Range(1.5f, 5f));
-                    //this.transform.DOMove(Destination, Random.Range(3f, 6f)).SetEase(Ease.InSine);
-                   
+                if (!SpeedRandomed)
+                {
+                    Speed = Random.Range(1f, 3f);
+                    SpeedRandomed = true;
                 }
-            }
+                transform.position = Vector3.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
+                    //this.transform.DOMove(Destination, Random.Range(3f, 6f)).SetEase(Ease.InSine);
+                    //Moved = true;
+                }
+            
 
             if (this.transform.position == Destination)
             {
                 Moved = false;
+                SpeedRandomed = false;
                 isMoving = false;
             }
             }
