@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        
+        Brightness = 0f;
         Color_one = Panel.color;
         SunSet = true;
         SunRise = false;
@@ -23,7 +25,7 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         SunRiseDown();
-        print(Brightness);
+       
     }
     public void SunRiseDown()
     {
@@ -33,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         if (Brightness < 0.8f && SunSet)
         {
-            Brightness += 0.013f;
+            Brightness += 0.00043f;
         }
         else if (Brightness >= 0.8f && SunSet)
         {
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
         if (Brightness > 0f && SunRise)
         {
-            Brightness -= 0.013f;
+            Brightness -= 0.00043f;
         }
         else if (Brightness <= 0f && SunRise)
         {
