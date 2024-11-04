@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Color Color_one;
     public bool SunRise;
     public bool SunSet;
+    public int count;
     
     void Start()
     {
@@ -25,7 +26,9 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         SunRiseDown();
-       
+
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Microalgea");
+        int count = objectsWithTag.Length;
     }
     public void SunRiseDown()
     {

@@ -188,5 +188,7 @@ MonoBehaviour:
   Life_duration: 0
   Escaping: 0
   Foraging: 0
-  fish_spirte: {fileID: 0}
+  fish_spirte: {fileID: 3504110012961208726}
+  sprite: {fileID: 21300000, guid: 6f6267fca84ec914896e5d88f6cfb3d5, type: 3}
   hungry_timer: 13
+  food_grow: 0

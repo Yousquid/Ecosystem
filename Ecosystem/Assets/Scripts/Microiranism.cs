@@ -21,7 +21,7 @@ public class Microiranism : MonoBehaviour
     public float Speed;
     public float Life_duration;
     private GameObject[] objectsWithTag;
-    private int count;
+    public int count;
     void Start()
     {
         TimeAlive = 0f;
@@ -35,20 +35,21 @@ public class Microiranism : MonoBehaviour
         
         if (gameManager.Brightness <= 0.4f)
         {
-            TimeAlive += Time.deltaTime*2;
+            TimeAlive += Time.deltaTime;
         }
         if (gameManager.Brightness > 0.4f)
         {
             TimeAlive += Time.deltaTime/4 ;
         }
 
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Microalgea");
-        int count = objectsWithTag.Length;
+       
 
 
         MoveMicroalgea();
         GenerateMicroalgea();
         GrowUpScale();
+
+        
     }
 
     
@@ -57,13 +58,13 @@ public class Microiranism : MonoBehaviour
     {
         if ( TimeAlive > Life_duration && !Generated)
         {
-            if (count <= 40)
+            if (gameManager.count <= 40)
             {
                 Instantiate(Microalgea, this.transform.position + new Vector3(-0.1f, 0, 0), Quaternion.identity);
                 Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
                 Destroy(gameObject);
             }
-            else if (count > 40)
+            if (gameManager.count > 40)
             {
                 Destroy(gameObject);
             }
@@ -84,7 +85,7 @@ public class Microiranism : MonoBehaviour
             if (!Randomed)
             {
                 Destination = Randoming();
-                Life_duration = Random.Range(7f, 11f);
+                Life_duration = Random.Range(8f, 11f);
                 Randomed = true;
                 isMoving = true;
             }

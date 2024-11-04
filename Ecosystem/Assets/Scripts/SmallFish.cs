@@ -22,15 +22,18 @@ public class SmallFish : MonoBehaviour
     public bool Escaping = false;
     public bool Foraging = false;
     public SpriteRenderer fish_spirte;
+    public Sprite mature_sprite;
     public float hungry_timer = 8f;
-
-
+    public float food_grow = 0f;
+    public bool Mating = false;
+    public Rigidbody2D rigidbody2D;
 
     // Start is called before the first frame update
     void Start()
     {
         TimeAlive = 0f;
         this.transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
+        hungry_timer = Random.Range(6f, 12f);
     }
 
     // Update is called once per frame
@@ -40,8 +43,8 @@ public class SmallFish : MonoBehaviour
         MoveSmallFish();
         TurningFace();
         HungryTimer();
-        print(hungry_timer);
-        print(Foraging);
+        GrowUpScale();
+        MateAndDeath();
     }
     public Vector3 Randoming_Position ()
     {
@@ -92,15 +95,21 @@ public class SmallFish : MonoBehaviour
         {
             Randomed = false;
         }
-        if (!Randomed && !Foraging && !Escaping)
+        if (!Randomed && !Foraging && !Escaping &&!Mating)
         {
             Destination = Randoming_Position();
             Randomed = true;
             isMoving = true;
         }
-        if (!Escaping && Foraging)
+        if (!Escaping && Foraging && !Mating)
         {
             Destination = Foraging_Find();
+            Randomed = true;
+            isMoving = true;
+        }
+        if (Mating)
+        {
+            Destination = Mate_Find();
             Randomed = true;
             isMoving = true;
         }
@@ -163,6 +172,14 @@ public class SmallFish : MonoBehaviour
     
     }
 
+    public Vector3 Mate_Find()
+    {
+        GameObject nearestmate = FindNearestMate("Small_Fish");
+
+        return (nearestmate.transform.position) + new Vector3 (0.5f,0.2f,0f);
+
+    }
+
     GameObject FindNearestWithTag(string tag)
     {
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
@@ -184,17 +201,51 @@ public class SmallFish : MonoBehaviour
         return nearestObject;
     }
 
+    GameObject FindNearestMate(string tag)
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        GameObject nearestObject = null;
+        float shortestDistance = Mathf.Infinity;
+        Vector3 currentPosition = this.transform.position;
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            if (obj == this.gameObject)
+            {
+                continue;
+            }
+
+            SmallFish fish = obj.GetComponent<SmallFish>();
+
+            if (fish.Mating)
+            {
+                float distanceToObj = Vector3.Distance(currentPosition, obj.transform.position);
+
+                if (distanceToObj < shortestDistance)
+                {
+                    shortestDistance = distanceToObj;
+                    nearestObject = obj;
+                }
+
+            }
+
+        }
+
+        return nearestObject;
+    }
+
     public void HungryTimer()
     {     
         if (hungry_timer > 0f)
         {
+            rigidbody2D.simulated = false;
             hungry_timer -= Time.deltaTime;
           
         }
         if (hungry_timer <= 0f)
         {
             Foraging = true;
-          
+            rigidbody2D.simulated = true;
         }
     }
 
@@ -203,11 +254,24 @@ public class SmallFish : MonoBehaviour
        
         if (collision.CompareTag("Microalgea"))
         {
-            Destroy(collision);
-            hungry_timer = 8f;
+
+            hungry_timer = Random.Range(6f, 12f);
+            food_grow += 0.01f;
             Foraging = false;
         }
     }
 
+    public void GrowUpScale()
+    {
+        this.transform.localScale = new Vector3(0.0008f * TimeAlive + 0.09f + food_grow, 0.0008f * TimeAlive + 0.09f + food_grow, 0.0008f * TimeAlive + 0.09f + food_grow);
+    }
 
+    public void MateAndDeath()
+    {
+        if (this.transform.localScale.x >= 0.1f)
+        {
+            Mating = true;
+            fish_spirte.sprite = mature_sprite;
+        }
+    }
 }
