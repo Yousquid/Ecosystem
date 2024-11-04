@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1336626948985229229
+--- !u!1 &7997747332925345529
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6132074599675724843}
-  - component: {fileID: 1052726957069101070}
-  - component: {fileID: 1853914267467969194}
+  - component: {fileID: 6138089485444413677}
+  - component: {fileID: 3504110012961208726}
+  - component: {fileID: 3115744658319476739}
+  - component: {fileID: 4774661714526305837}
+  - component: {fileID: 2588838519349284573}
   m_Layer: 0
-  m_Name: Microorganism
-  m_TagString: Microalgea
+  m_Name: normal fish
+  m_TagString: Small_Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6132074599675724843
+--- !u!4 &6138089485444413677
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336626948985229229}
+  m_GameObject: {fileID: 7997747332925345529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.37, y: -0.52, z: 0}
-  m_LocalScale: {x: 0.032, y: 0.032, z: 0.032}
+  m_LocalPosition: {x: 0.94, y: 0.63, z: 0}
+  m_LocalScale: {x: 0.18391922, y: 0.18391922, z: 0.18391922}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1052726957069101070
+--- !u!212 &3504110012961208726
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336626948985229229}
+  m_GameObject: {fileID: 7997747332925345529}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,24 +76,51 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4f9908ee232dbf45b810175abba6a97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 199012e88f54ae64abcbda9ed42038d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.4, y: 8.45}
+  m_Size: {x: 10.28, y: 10.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1853914267467969194
-CircleCollider2D:
+--- !u!50 &3115744658319476739
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336626948985229229}
+  m_GameObject: {fileID: 7997747332925345529}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &4774661714526305837
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997747332925345529}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -117,6 +146,47 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -4.0805435, y: -0.94795996}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.28, y: 10.28}
+    newSize: {x: 10.28, y: 10.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 4.225
+  m_Size: {x: 0.8132839, y: 1.3300036}
+  m_EdgeRadius: 0
+--- !u!114 &2588838519349284573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997747332925345529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3035f36b982c448ad83440810d31fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallFish: {fileID: 7997747332925345529}
+  gameManager: {fileID: 0}
+  X_randomer: 0
+  Y_randomer: 0
+  Move_time: 0
+  isMoving: 0
+  Randomed: 1
+  Destination: {x: 0, y: 0, z: 0}
+  Moved: 0
+  CurrentPosition: {x: 0, y: 0, z: 0}
+  TimeAlive: 0
+  Generated: 0
+  SpeedRandomed: 0
+  Speed: 0
+  Life_duration: 0
+  Escaping: 0
+  Foraging: 0
+  fish_spirte: {fileID: 0}
+  hungry_timer: 13

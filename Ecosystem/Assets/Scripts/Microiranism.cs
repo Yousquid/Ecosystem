@@ -20,6 +20,8 @@ public class Microiranism : MonoBehaviour
     public bool SpeedRandomed = false;
     public float Speed;
     public float Life_duration;
+    private GameObject[] objectsWithTag;
+    private int count;
     void Start()
     {
         TimeAlive = 0f;
@@ -33,25 +35,40 @@ public class Microiranism : MonoBehaviour
         
         if (gameManager.Brightness <= 0.4f)
         {
-            TimeAlive += Time.deltaTime;
+            TimeAlive += Time.deltaTime*2;
         }
         if (gameManager.Brightness > 0.4f)
         {
             TimeAlive += Time.deltaTime/4 ;
         }
-        if (this!= null)
+
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Microalgea");
+        int count = objectsWithTag.Length;
+
+
         MoveMicroalgea();
         GenerateMicroalgea();
+        GrowUpScale();
     }
+
+    
 
     public void GenerateMicroalgea()
     {
         if ( TimeAlive > Life_duration && !Generated)
         {
-            Instantiate(Microalgea, this.transform.position + new Vector3 (-0.1f,0,0), Quaternion.identity);
-            Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
+            if (count <= 40)
+            {
+                Instantiate(Microalgea, this.transform.position + new Vector3(-0.1f, 0, 0), Quaternion.identity);
+                Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
+                Destroy(gameObject);
+            }
+            else if (count > 40)
+            {
+                Destroy(gameObject);
+            }
            
-            Destroy(gameObject);
+           
             Generated = true;
         }
     }
@@ -67,7 +84,7 @@ public class Microiranism : MonoBehaviour
             if (!Randomed)
             {
                 Destination = Randoming();
-                Life_duration = Random.Range(10f, 15f);
+                Life_duration = Random.Range(7f, 11f);
                 Randomed = true;
                 isMoving = true;
             }
@@ -95,7 +112,7 @@ public class Microiranism : MonoBehaviour
                 {
                 if (!SpeedRandomed)
                 {
-                    Speed = Random.Range(1f, 5f);
+                    Speed = Random.Range(0.5f, 3f);
                     SpeedRandomed = true;
                 }
                     transform.position = Vector3.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
@@ -107,7 +124,7 @@ public class Microiranism : MonoBehaviour
                 {
                 if (!SpeedRandomed)
                 {
-                    Speed = Random.Range(1f, 3f);
+                    Speed = Random.Range(0.2f, 2f);
                     SpeedRandomed = true;
                 }
                 transform.position = Vector3.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
@@ -162,9 +179,17 @@ public class Microiranism : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Small_Fish"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void GrowUpScale()
-    { 
-        //this.transform.localScale += new Vector3 ()
+    {
+        this.transform.localScale = new Vector3(0.001f * TimeAlive + 0.016f, 0.001f * TimeAlive + 0.016f, 0.001f * TimeAlive + 0.016f);
     }
 
 }
