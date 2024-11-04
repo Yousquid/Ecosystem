@@ -218,6 +218,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1001 &366530375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +496,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1 &922252349
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +531,7 @@ MonoBehaviour:
   Color_one: {r: 0, g: 0, b: 0, a: 0}
   SunRise: 0
   SunSet: 0
+  count: 0
 --- !u!4 &922252351
 Transform:
   m_ObjectHideFlags: 0
@@ -861,6 +865,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1001 &1503037641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,6 +962,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1001 &1508790552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -973,10 +979,18 @@ PrefabInstance:
       propertyPath: mature_sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6f6267fca84ec914896e5d88f6cfb3d5, type: 3}
+    - target: {fileID: 3115744658319476739, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+      propertyPath: m_Mass
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 3504110012961208726, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 199012e88f54ae64abcbda9ed42038d7, type: 3}
+    - target: {fileID: 4774661714526305837, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6138089485444413677, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.64
@@ -1277,6 +1291,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!50 &1772594092 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3115744658319476739, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
@@ -1374,6 +1389,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1001 &1928502377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1390,10 +1406,18 @@ PrefabInstance:
       propertyPath: mature_sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6f6267fca84ec914896e5d88f6cfb3d5, type: 3}
+    - target: {fileID: 3115744658319476739, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+      propertyPath: m_Mass
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 3504110012961208726, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 199012e88f54ae64abcbda9ed42038d7, type: 3}
+    - target: {fileID: 4774661714526305837, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6138089485444413677, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.9
@@ -1607,6 +1631,7 @@ MonoBehaviour:
   SpeedRandomed: 0
   Speed: 0
   Life_duration: 0
+  count: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

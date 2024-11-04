@@ -27,7 +27,8 @@ public class SmallFish : MonoBehaviour
     public float food_grow = 0f;
     public bool Mating = false;
     public Rigidbody2D rigidbody2D;
-
+    public bool Death;
+    public float Mate_Timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,7 +90,7 @@ public class SmallFish : MonoBehaviour
 
     public void MoveSmallFish()
     {
-       
+        float min_distance = 0.35f;
 
         if (!isMoving)
         {
@@ -109,7 +110,8 @@ public class SmallFish : MonoBehaviour
         }
         if (Mating)
         {
-            Destination = Mate_Find();
+            Destination = Mate_Find(); 
+            
             Randomed = true;
             isMoving = true;
         }
@@ -176,30 +178,11 @@ public class SmallFish : MonoBehaviour
     {
         GameObject nearestmate = FindNearestMate("Small_Fish");
 
-        return (nearestmate.transform.position) + new Vector3 (0.5f,0.2f,0f);
+        return (nearestmate.transform.position);
 
     }
 
-    GameObject FindNearestWithTag(string tag)
-    {
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
-        GameObject nearestObject = null;
-        float shortestDistance = Mathf.Infinity;
-        Vector3 currentPosition = this.transform.position;
-
-        foreach (GameObject obj in objectsWithTag)
-        {
-            float distanceToObj = Vector3.Distance(currentPosition, obj.transform.position);
-
-            if (distanceToObj < shortestDistance)
-            {
-                shortestDistance = distanceToObj;
-                nearestObject = obj;
-            }
-        }
-
-        return nearestObject;
-    }
+   
 
     GameObject FindNearestMate(string tag)
     {
@@ -233,7 +216,26 @@ public class SmallFish : MonoBehaviour
 
         return nearestObject;
     }
+    GameObject FindNearestWithTag(string tag)
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        GameObject nearestObject = null;
+        float shortestDistance = Mathf.Infinity;
+        Vector3 currentPosition = this.transform.position;
 
+        foreach (GameObject obj in objectsWithTag)
+        {
+            float distanceToObj = Vector3.Distance(currentPosition, obj.transform.position);
+
+            if (distanceToObj < shortestDistance)
+            {
+                shortestDistance = distanceToObj;
+                nearestObject = obj;
+            }
+        }
+
+        return nearestObject;
+    }
     public void HungryTimer()
     {     
         if (hungry_timer > 0f)
@@ -261,6 +263,10 @@ public class SmallFish : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Mate_Timer += Time.deltaTime;
+    }
     public void GrowUpScale()
     {
         this.transform.localScale = new Vector3(0.0008f * TimeAlive + 0.09f + food_grow, 0.0008f * TimeAlive + 0.09f + food_grow, 0.0008f * TimeAlive + 0.09f + food_grow);
