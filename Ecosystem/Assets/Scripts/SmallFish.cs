@@ -29,7 +29,7 @@ public class SmallFish : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public bool Death;
     public float Mate_Timer;
-    
+   
    
     // Start is called before the first frame update
     void Start()
@@ -203,6 +203,7 @@ public class SmallFish : MonoBehaviour
 
             if (fish.Mating)
             {
+               
                 float distanceToObj = Vector3.Distance(currentPosition, obj.transform.position);
 
                 if (distanceToObj < shortestDistance)

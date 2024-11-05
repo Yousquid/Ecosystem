@@ -532,6 +532,8 @@ MonoBehaviour:
   SunRise: 0
   SunSet: 0
   count: 0
+  maturedFish: []
+  mature_fish_count: 0
 --- !u!4 &922252351
 Transform:
   m_ObjectHideFlags: 0
@@ -971,6 +973,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2588838519349284573, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 922252350}
     - target: {fileID: 2588838519349284573, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
       propertyPath: rigidbody2D
       value: 
@@ -1414,6 +1420,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2588838519349284573, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 922252350}
     - target: {fileID: 2588838519349284573, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
       propertyPath: rigidbody2D
       value: 
