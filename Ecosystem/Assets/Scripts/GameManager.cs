@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     public bool SunRise;
     public bool SunSet;
     public int count;
-    
+    public List<GameObject> maturedFish;
+    public int mature_fish_count;
     void Start()
     {
         
@@ -25,8 +26,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        print(mature_fish_count);
         SunRiseDown();
-
+        Maturefish();
+        mature_fish_count = maturedFish.Count;
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Microalgea");
         int count = objectsWithTag.Length;
     }
@@ -57,5 +60,23 @@ public class GameManager : MonoBehaviour
 
         
 
+    }
+
+    public void Maturefish()
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Small_Fish");
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            SmallFish fish = obj.GetComponent<SmallFish>();
+
+            if (fish.Mating)
+            {
+
+                maturedFish.Add(obj);
+
+
+            }
+        }
     }
 }

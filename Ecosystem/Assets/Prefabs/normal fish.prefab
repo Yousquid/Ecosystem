@@ -146,10 +146,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.0805435, y: -0.94795996}
+  m_Offset: {x: -0.017672896, y: 0.19155312}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.1744186, y: 0.4160206}
     oldSize: {x: 10.28, y: 10.28}
     newSize: {x: 10.28, y: 10.28}
     adaptiveTilingThreshold: 0.5
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8132839, y: 1.3300036}
+  m_Size: {x: 2.0422876, y: 3.2987952}
   m_EdgeRadius: 0
 --- !u!114 &2588838519349284573
 MonoBehaviour:
@@ -189,6 +189,11 @@ MonoBehaviour:
   Escaping: 0
   Foraging: 0
   fish_spirte: {fileID: 3504110012961208726}
-  sprite: {fileID: 21300000, guid: 6f6267fca84ec914896e5d88f6cfb3d5, type: 3}
+  mature_sprite: {fileID: 0}
   hungry_timer: 13
   food_grow: 0
+  Mating: 0
+  rigidbody2D: {fileID: 0}
+  Death: 0
+  Mate_Timer: 0
+  maturedFish: []
