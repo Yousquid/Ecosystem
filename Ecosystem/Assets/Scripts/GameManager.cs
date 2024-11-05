@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public bool SunRise;
     public bool SunSet;
     public int count;
-    
+    public List<GameObject> maturedFish;
+    public int mature_fish_count;
+
     void Start()
     {
         
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
 
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Microalgea");
         int count = objectsWithTag.Length;
+        mature_fish_count = maturedFish.Count;
+        Mature_Fish_Count();
     }
     public void SunRiseDown()
     {
@@ -58,4 +62,22 @@ public class GameManager : MonoBehaviour
         
 
     }
+
+    public void Mature_Fish_Count()
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Small_Fish");
+
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            SmallFish fish = obj.GetComponent<SmallFish>();
+
+            if (fish.Mating)
+            {
+                maturedFish.Add(obj);
+            }
+
+        }
+    }
+
 }

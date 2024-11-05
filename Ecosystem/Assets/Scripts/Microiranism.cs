@@ -22,6 +22,7 @@ public class Microiranism : MonoBehaviour
     public float Life_duration;
     private GameObject[] objectsWithTag;
     public int count;
+   
     void Start()
     {
         TimeAlive = 0f;
@@ -48,8 +49,9 @@ public class Microiranism : MonoBehaviour
         MoveMicroalgea();
         GenerateMicroalgea();
         GrowUpScale();
-
         
+
+
     }
 
     

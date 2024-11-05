@@ -29,7 +29,7 @@ public class SmallFish : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public bool Death;
     public float Mate_Timer;
-    public List<GameObject> maturedFish;
+    
    
     // Start is called before the first frame update
     void Start()
@@ -97,19 +97,19 @@ public class SmallFish : MonoBehaviour
         {
             Randomed = false;
         }
-        if (!Randomed && !Foraging && !Escaping && maturedFish.Count < 2)
+        if (!Randomed && !Foraging && !Escaping && gameManager.mature_fish_count < 2)
         {
             Destination = Randoming_Position();
             Randomed = true;
             isMoving = true;
         }
-        if (!Escaping && Foraging && maturedFish.Count < 2)
+        if (!Escaping && Foraging && gameManager.mature_fish_count < 2)
         {
             Destination = Foraging_Find();
             Randomed = true;
             isMoving = true;
         }
-        if (maturedFish.Count >= 2)
+        if (gameManager.mature_fish_count >= 2)
         {
             Destination = Mate_Find(); 
             
@@ -203,8 +203,6 @@ public class SmallFish : MonoBehaviour
 
             if (fish.Mating)
             {
-                maturedFish.Add(obj);
-
                 float distanceToObj = Vector3.Distance(currentPosition, obj.transform.position);
 
                 if (distanceToObj < shortestDistance)
