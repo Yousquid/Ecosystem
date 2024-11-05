@@ -97,19 +97,19 @@ public class SmallFish : MonoBehaviour
         {
             Randomed = false;
         }
-        if (!Randomed && !Foraging && !Escaping && gameManager.mature_fish_count < 3)
+        if (!Randomed && !Foraging && !Escaping && gameManager.mature_fish_count < 2)
         {
             Destination = Randoming_Position();
             Randomed = true;
             isMoving = true;
         }
-        if (!Escaping && Foraging && gameManager.mature_fish_count < 3)
+        if (!Escaping && Foraging && gameManager.mature_fish_count < 2)
         {
             Destination = Foraging_Find();
             Randomed = true;
             isMoving = true;
         }
-        if (gameManager.mature_fish_count >= 3)
+        if (gameManager.mature_fish_count >= 2)
         {
             Destination = Mate_Find(); 
             

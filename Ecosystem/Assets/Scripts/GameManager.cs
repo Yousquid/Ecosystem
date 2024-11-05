@@ -72,8 +72,9 @@ public class GameManager : MonoBehaviour
 
             if (fish.Mating)
             {
-
-                maturedFish.Add(obj);
+                if (!maturedFish.Contains(obj))
+                { maturedFish.Add(obj); }
+                
 
 
             }
