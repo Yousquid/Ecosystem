@@ -35,6 +35,7 @@ public class SmallFish : MonoBehaviour
     public bool offspring_generated = false;
     public Sprite original_sprite;
     public bool has_mate = false;
+    public BoxCollider2D collider2D;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +64,13 @@ public class SmallFish : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (gameManager.Shark_Dash)
+        {
+            rigidbody2D.simulated = true;
+            collider2D.isTrigger = false;
+        }
+        
+
         TimeAlive += Time.deltaTime;
         MoveSmallFish();
         TurningFace();
@@ -286,15 +294,17 @@ public class SmallFish : MonoBehaviour
     }
     public void HungryTimer()
     {     
-        if (hungry_timer > 0f)
+        if (hungry_timer > 0f && !gameManager.Shark_Dash)
         {
             rigidbody2D.simulated = false;
+            collider2D.isTrigger = true;
             hungry_timer -= Time.deltaTime;
           
         }
         if (hungry_timer <= 0f)
         {
             Foraging = true;
+            collider2D.isTrigger = false;
             rigidbody2D.simulated = true;
         }
     }
@@ -311,6 +321,19 @@ public class SmallFish : MonoBehaviour
                 Foraging = false;
             }
             
+        }
+
+        if (collision.gameObject.CompareTag("Shark") && this.transform.localScale.x >= 0.13)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Shark") && this.transform.localScale.x >= 0.13)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -345,6 +368,8 @@ public class SmallFish : MonoBehaviour
             fish_spirte.sprite = mature_sprite;
 
             this.gameObject.tag = "Mature_Fish";
+
+            collider2D.isTrigger = false;
 
             rigidbody2D.simulated = true;
 
@@ -415,5 +440,6 @@ public class SmallFish : MonoBehaviour
     {
         gameManager.fish_number_list.Remove(this.gameObject);
     }
+
 
 }

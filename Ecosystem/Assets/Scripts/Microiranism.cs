@@ -36,11 +36,11 @@ public class Microiranism : MonoBehaviour
         
         if (gameManager.Brightness <= 0.4f)
         {
-            TimeAlive += Time.deltaTime;
+            TimeAlive += Time.deltaTime*2;
         }
         if (gameManager.Brightness > 0.4f)
         {
-            TimeAlive += Time.deltaTime/4 ;
+            TimeAlive += Time.deltaTime/2 ;
         }
 
        
@@ -185,6 +185,10 @@ public class Microiranism : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Small_Fish"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.CompareTag("Mature_Fish"))
         {
             Destroy(gameObject);
         }

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int mature_fish_count;
     public int fish_number_limit;
     public List<GameObject> fish_number_list;
+    public bool Shark_Dash;
+    public float shark_timer;
     void Start()
     {
         
@@ -36,6 +38,16 @@ public class GameManager : MonoBehaviour
         count = objectsWithTag.Length;
         CountFish();
         fish_number_limit = fish_number_list.Count;
+
+        if (Shark_Dash)
+        {
+            shark_timer += Time.deltaTime;
+        }
+        if (shark_timer >= 5)
+        {
+            Shark_Dash = false;
+            shark_timer = 0;
+        }
     }
     public void SunRiseDown()
     {

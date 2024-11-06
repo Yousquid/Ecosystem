@@ -8,6 +8,7 @@ TagManager:
   - Microalgea
   - Matrue_Fish
   - Mature_Fish
+  - Shark
   layers:
   - Default
   - TransparentFX
