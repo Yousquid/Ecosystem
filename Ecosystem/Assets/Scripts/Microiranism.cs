@@ -60,13 +60,13 @@ public class Microiranism : MonoBehaviour
     {
         if ( TimeAlive > Life_duration && !Generated)
         {
-            if (gameManager.count <= 70)
+            if (gameManager.count <= 80)
             {
                 Instantiate(Microalgea, this.transform.position + new Vector3(-0.1f, 0, 0), Quaternion.identity);
                 Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
                 Destroy(gameObject);
             }
-            if (gameManager.count > 70)
+            if (gameManager.count > 80)
             {
                 Destroy(gameObject);
             }

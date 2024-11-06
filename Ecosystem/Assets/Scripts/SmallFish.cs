@@ -377,7 +377,7 @@ public class SmallFish : MonoBehaviour
         {
 
             StopAllCoroutines();
-            if (gameManager.fish_number_limit < 16)
+            if (gameManager.fish_number_limit < 30)
             {
                 GameObject newobject_one = Instantiate(offspring, this.transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.5f, -0.3f), 0), Quaternion.identity);
                 GameObject newobject_two = Instantiate(offspring, this.transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.5f, -0.3f), 0), Quaternion.identity);
