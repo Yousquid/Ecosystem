@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using FMODUnity;
 public class Shark : MonoBehaviour
 {
     public bool enter;
@@ -30,8 +30,8 @@ public class Shark : MonoBehaviour
     public float yOffset;
     public float wave_timer = 0;
     public bool yOffset_randomed = false;
-
-
+    public FMODUnity.EventReference dash;
+    public FMODUnity.EventReference play;
 
     void Start()
     {
@@ -64,6 +64,7 @@ public class Shark : MonoBehaviour
         }
         if (attack)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(dash);
             gameManager.Shark_Dash = true;
             shark_sprite.sprite = eating;
             rigidbody2D.simulated = true;
@@ -84,6 +85,7 @@ public class Shark : MonoBehaviour
 
                 if (play_randomer == 0)
                 {
+                    FMODUnity.RuntimeManager.PlayOneShot(play);
                     this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                     this.transform.position = new Vector3(10f, Random.Range(-4f, 4f), this.transform.position.z);
                     centerPoint = FindNearestWithTag("Small_Fish").transform;
@@ -93,7 +95,7 @@ public class Shark : MonoBehaviour
                 }
                 if (play_randomer == 1)
                 {
-                    
+                    FMODUnity.RuntimeManager.PlayOneShot(play);
                     this.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                     this.transform.position = new Vector3(-12f, 0f, this.transform.position.z);
                     StartCoroutine(WaitForWaveLinePlay());

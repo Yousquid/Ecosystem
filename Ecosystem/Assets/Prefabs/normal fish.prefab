@@ -203,3 +203,24 @@ MonoBehaviour:
   original_sprite: {fileID: 21300000, guid: 199012e88f54ae64abcbda9ed42038d7, type: 3}
   has_mate: 0
   collider2D: {fileID: 4774661714526305837}
+  eat:
+    Guid:
+      Data1: 1910367650
+      Data2: 1149605665
+      Data3: 798775966
+      Data4: -420922574
+    Path: event:/Fish_eat
+  love:
+    Guid:
+      Data1: -1369197914
+      Data2: 1301960519
+      Data3: -1458978677
+      Data4: 2074942460
+    Path: event:/Fish_love
+  being_eaten:
+    Guid:
+      Data1: 724577928
+      Data2: 1207260268
+      Data3: 1764061070
+      Data4: 124387149
+    Path: event:/Shark_eat

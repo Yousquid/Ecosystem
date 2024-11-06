@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cc7a2d50-958d-4198-a234-664a8d465dea}">
+		<property name="assetPath">
+			<value>泡泡破裂“啵”_耳聆网_[声音ID：38419].wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.12</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{28b846f4-eff6-44c9-8e8b-02dfb767683f}</destination>
+		</relationship>
+	</object>
+</objects>

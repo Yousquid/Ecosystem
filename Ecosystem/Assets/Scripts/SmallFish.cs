@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class SmallFish : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class SmallFish : MonoBehaviour
     public Sprite original_sprite;
     public bool has_mate = false;
     public BoxCollider2D collider2D;
+    public FMODUnity.EventReference eat;
+    public FMODUnity.EventReference love;
+    public FMODUnity.EventReference being_eaten;
     // Start is called before the first frame update
     void Start()
     {
@@ -316,6 +320,7 @@ public class SmallFish : MonoBehaviour
         {
             if (!Mating)
             {
+                FMODUnity.RuntimeManager.PlayOneShot(eat);
                 hungry_timer = Random.Range(6f, 12f);
                 food_grow += 0.01f;
                 Foraging = false;
@@ -325,6 +330,7 @@ public class SmallFish : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Shark") && this.transform.localScale.x >= 0.13)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(being_eaten);
             Destroy(gameObject);
         }
     }
@@ -333,6 +339,7 @@ public class SmallFish : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shark") && this.transform.localScale.x >= 0.13)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(being_eaten);
             Destroy(gameObject);
         }
     }
@@ -382,12 +389,15 @@ public class SmallFish : MonoBehaviour
     IEnumerator GenerateHeartsAtIntervals()
     {
         yield return new WaitForSeconds(0.5f);
+        FMODUnity.RuntimeManager.PlayOneShot(love);
         Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);
+        FMODUnity.RuntimeManager.PlayOneShot(love);
         Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);
+        FMODUnity.RuntimeManager.PlayOneShot(love);
         Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
     }
     public void Mating_Animation()
