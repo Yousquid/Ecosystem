@@ -18,12 +18,15 @@ public class Shark : MonoBehaviour
     public SpriteRenderer shark_sprite;
     public Sprite calm;
     public Sprite eating;
-
+    public GameManager gameManager;
+    public Transform centerPoint; // The point to rotate around
+    public float radius = 2f;
+    public float duration = 2f;
 
 
     void Start()
     {
-       
+        DocircularMove();
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class Shark : MonoBehaviour
     {
         behavior_timer += Time.deltaTime;
 
-        if (behavior_timer >= 5)
+        if (behavior_timer >= 5 && gameManager.fish_number_limit >= 5)
         {
             preparation = true;
             behavior_timer = 0;
@@ -39,14 +42,18 @@ public class Shark : MonoBehaviour
 
         if (preparation)
         {
+            shark_sprite.sprite = calm;
             rigidbody2D.simulated = false;
             RandomPreparationPlace();
         }
         if (attack)
         {
+            shark_sprite.sprite = eating;
             rigidbody2D.simulated = true;
             Attacking();
         }
+
+        
         
     }
    
@@ -118,6 +125,22 @@ public class Shark : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
     }
+
+    public void DocircularMove()
+    {
+        Vector3 startPosition = centerPoint.position + new Vector3(radius, 0, 0);
+        transform.position = startPosition;
+
+        transform.DORotate(new Vector3(0, 0, 360), duration, RotateMode.FastBeyond360)
+                 .SetEase(Ease.Linear)
+                 .SetLoops(-1, LoopType.Restart)
+                 .OnUpdate(() =>
+                 {
+                     float angle = transform.eulerAngles.z * Mathf.Deg2Rad;
+                     transform.position = centerPoint.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0);
+                 });
+    }
+
 
    
 

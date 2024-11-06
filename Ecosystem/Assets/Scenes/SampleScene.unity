@@ -730,6 +730,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3115744658319476739, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
   m_PrefabInstance: {fileID: 1508790552}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1281049687 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6138089485444413677, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
+  m_PrefabInstance: {fileID: 1508790552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1498410416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,7 +1119,7 @@ Transform:
   m_GameObject: {fileID: 1649452348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.8734, y: 2.8578, z: 0}
+  m_LocalPosition: {x: -6.94, y: -2.82, z: 0}
   m_LocalScale: {x: 0.55896175, y: 0.55896175, z: 0.55896175}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1142,6 +1147,13 @@ MonoBehaviour:
   Destination: {x: 0, y: 0, z: 0}
   left_or_right: 0
   y_position: 0
+  shark_sprite: {fileID: 1649452349}
+  calm: {fileID: 21300000, guid: dab1a8ae1753c70419c701cc943b9e1d, type: 3}
+  eating: {fileID: 21300000, guid: e419a72f3088fdf4ab7776f6d0826aa6, type: 3}
+  gameManager: {fileID: 922252350}
+  centerPoint: {fileID: 1281049687}
+  radius: 2
+  duration: 2
 --- !u!61 &1649452352
 BoxCollider2D:
   m_ObjectHideFlags: 0
