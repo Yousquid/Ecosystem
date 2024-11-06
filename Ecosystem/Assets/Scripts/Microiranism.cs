@@ -22,6 +22,7 @@ public class Microiranism : MonoBehaviour
     public float Life_duration;
     private GameObject[] objectsWithTag;
     public int count;
+    public AudioSource bubble_audio;
    
     void Start()
     {
@@ -36,7 +37,7 @@ public class Microiranism : MonoBehaviour
         
         if (gameManager.Brightness <= 0.4f)
         {
-            TimeAlive += Time.deltaTime*2;
+            TimeAlive += Time.deltaTime*1.5f;
         }
         if (gameManager.Brightness > 0.4f)
         {
@@ -64,10 +65,13 @@ public class Microiranism : MonoBehaviour
             {
                 Instantiate(Microalgea, this.transform.position + new Vector3(-0.1f, 0, 0), Quaternion.identity);
                 Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
+
+                bubble_audio.Play();
                 Destroy(gameObject);
             }
             if (gameManager.count > 80)
             {
+                bubble_audio.Play();
                 Destroy(gameObject);
             }
            

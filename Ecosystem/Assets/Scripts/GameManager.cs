@@ -17,9 +17,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> fish_number_list;
     public bool Shark_Dash;
     public float shark_timer;
+    public AudioSource ambience;
     void Start()
     {
-        
+        ambience.Play();
         Brightness = 0f;
         Color_one = Panel.color;
         SunSet = true;

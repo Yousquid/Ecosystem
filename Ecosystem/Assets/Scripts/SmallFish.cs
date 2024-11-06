@@ -36,6 +36,8 @@ public class SmallFish : MonoBehaviour
     public Sprite original_sprite;
     public bool has_mate = false;
     public BoxCollider2D collider2D;
+    public AudioSource eat;
+    public AudioSource love;
     // Start is called before the first frame update
     void Start()
     {
@@ -316,9 +318,11 @@ public class SmallFish : MonoBehaviour
         {
             if (!Mating)
             {
+                eat.Play();
                 hungry_timer = Random.Range(6f, 12f);
                 food_grow += 0.01f;
                 Foraging = false;
+                eat.Stop();
             }
             
         }
@@ -382,6 +386,7 @@ public class SmallFish : MonoBehaviour
     IEnumerator GenerateHeartsAtIntervals()
     {
         yield return new WaitForSeconds(0.5f);
+        love.Play();
         Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);

@@ -178,7 +178,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_Volume
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -219,6 +228,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 171878730}
+--- !u!82 &171878730 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 171878727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &366530375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: bubble_audio
+      value: 
+      objectReference: {fileID: 366530378}
     - target: {fileID: 1336626948985229229, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
       propertyPath: m_Name
       value: Microorganism (5)
@@ -271,7 +290,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: Priority
+      value: 129
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -312,6 +340,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 366530378}
+--- !u!82 &366530378 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 366530375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +446,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: bubble_audio
+      value: 
+      objectReference: {fileID: 616536214}
     - target: {fileID: 1336626948985229229, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
       propertyPath: m_Name
       value: Microorganism (7)
@@ -456,7 +494,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -497,6 +540,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 616536214}
+--- !u!82 &616536214 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 616536211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &673305027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,7 +779,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 720974492403482307, guid: 4a271fc5e0c85e54890361fdb13f531e, type: 3}
   m_PrefabInstance: {fileID: 7979105272178441619}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1737622202}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a92ca2d2dce32fa4d976840a15d607b2, type: 3}
@@ -1133,7 +1182,12 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1174,6 +1228,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 1498410419}
+--- !u!82 &1498410419 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 1498410416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1503037641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1182,6 +1242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: bubble_audio
+      value: 
+      objectReference: {fileID: 1503037644}
     - target: {fileID: 1336626948985229229, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
       propertyPath: m_Name
       value: Microorganism (2)
@@ -1230,7 +1294,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_Volume
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1271,6 +1344,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 1503037644}
+--- !u!82 &1503037644 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 1503037641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1508790552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1659,6 +1738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: bubble_audio
+      value: 
+      objectReference: {fileID: 1654607985}
     - target: {fileID: 1336626948985229229, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
       propertyPath: m_Name
       value: Microorganism (1)
@@ -1703,7 +1786,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1744,6 +1832,113 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 1654607985}
+--- !u!82 &1654607985 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 1654607982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1737622202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 408841369521771130, guid: 4a271fc5e0c85e54890361fdb13f531e, type: 3}
+  m_PrefabInstance: {fileID: 7979105272178441619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1737622204
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737622202}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 07952ed5ce0583346935c7f902830686, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.68
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!50 &1772594092 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3115744658319476739, guid: 79f95f357805d3b47a29d2789a456870, type: 3}
@@ -1757,6 +1952,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: bubble_audio
+      value: 
+      objectReference: {fileID: 1924413936}
     - target: {fileID: 1336626948985229229, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
       propertyPath: m_Name
       value: Microorganism (6)
@@ -1801,7 +2000,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1842,6 +2046,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 1924413936}
+--- !u!82 &1924413936 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 1924413933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1928502377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2084,6 +2294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: bubble_audio
+      value: 
+      objectReference: {fileID: 6767345503333928106}
     - target: {fileID: 1336626948985229229, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
       propertyPath: m_Name
       value: Microorganism
@@ -2132,7 +2346,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_Volume
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -4418403440413166124, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2173,6 +2396,12 @@ MonoBehaviour:
   Speed: 0
   Life_duration: 0
   count: 0
+  bubble_audio: {fileID: 6767345503333928106}
+--- !u!82 &6767345503333928106 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525943448029674906, guid: b45b3469a6864ef47ac807d9c0dcc10a, type: 3}
+  m_PrefabInstance: {fileID: 6767345503333928103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7979105272178441619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2229,10 +2458,17 @@ PrefabInstance:
       propertyPath: Panel
       value: 
       objectReference: {fileID: 1651828250}
+    - target: {fileID: 720974492403482307, guid: 4a271fc5e0c85e54890361fdb13f531e, type: 3}
+      propertyPath: ambience
+      value: 
+      objectReference: {fileID: 1737622204}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 408841369521771130, guid: 4a271fc5e0c85e54890361fdb13f531e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1737622204}
   m_SourcePrefab: {fileID: 100100000, guid: 4a271fc5e0c85e54890361fdb13f531e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
