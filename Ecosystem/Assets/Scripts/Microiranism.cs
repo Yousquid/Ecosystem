@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using FMODUnity;
 
 public class Microiranism : MonoBehaviour
 {
@@ -22,13 +23,14 @@ public class Microiranism : MonoBehaviour
     public float Life_duration;
     private GameObject[] objectsWithTag;
     public int count;
-    public AudioSource bubble_audio;
+    public FMODUnity.EventReference buble;
    
     void Start()
     {
         TimeAlive = 0f;
         this.transform.localScale = new Vector3(0.016f, 0.016f, 0.016f);
-        
+        gameManager = FindObjectOfType<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class Microiranism : MonoBehaviour
         
         if (gameManager.Brightness <= 0.4f)
         {
-            TimeAlive += Time.deltaTime*1.5f;
+            TimeAlive += Time.deltaTime*2;
         }
         if (gameManager.Brightness > 0.4f)
         {
@@ -63,15 +65,14 @@ public class Microiranism : MonoBehaviour
         {
             if (gameManager.count <= 80)
             {
+                FMODUnity.RuntimeManager.PlayOneShot(buble);
                 Instantiate(Microalgea, this.transform.position + new Vector3(-0.1f, 0, 0), Quaternion.identity);
                 Instantiate(Microalgea, this.transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
-
-                bubble_audio.Play();
                 Destroy(gameObject);
             }
             if (gameManager.count > 80)
             {
-                bubble_audio.Play();
+                FMODUnity.RuntimeManager.PlayOneShot(buble);
                 Destroy(gameObject);
             }
            

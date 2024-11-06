@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e6fe2e6c-0b0d-41b5-844b-19f1019c89b1}">
+		<property name="assetPath">
+			<value>水族馆的氛围_耳聆网_[声音ID：16078].wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>31.178730158730158</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{28b846f4-eff6-44c9-8e8b-02dfb767683f}</destination>
+		</relationship>
+	</object>
+</objects>

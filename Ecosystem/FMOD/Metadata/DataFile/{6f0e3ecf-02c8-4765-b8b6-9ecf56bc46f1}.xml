@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{6f0e3ecf-02c8-4765-b8b6-9ecf56bc46f1}">
+		<property name="assetPath">
+			<value>波~波~_耳聆网_[声音ID：38679].wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{28b846f4-eff6-44c9-8e8b-02dfb767683f}</destination>
+		</relationship>
+	</object>
+</objects>
