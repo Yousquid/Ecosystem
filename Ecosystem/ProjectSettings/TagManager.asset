@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Small_Fish
   - Microalgea
+  - Matrue_Fish
+  - Mature_Fish
   layers:
   - Default
   - TransparentFX

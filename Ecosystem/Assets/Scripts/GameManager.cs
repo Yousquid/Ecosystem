@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int count;
     public List<GameObject> maturedFish;
     public int mature_fish_count;
+    public int fish_number_limit;
+    public List<GameObject> fish_number_list;
     void Start()
     {
         
@@ -26,12 +28,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print(mature_fish_count);
+        
         SunRiseDown();
         Maturefish();
         mature_fish_count = maturedFish.Count;
         GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Microalgea");
-        int count = objectsWithTag.Length;
+        count = objectsWithTag.Length;
+        CountFish();
+        fish_number_limit = fish_number_list.Count;
     }
     public void SunRiseDown()
     {
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void Maturefish()
     {
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Small_Fish");
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Mature_Fish");
 
         foreach (GameObject obj in objectsWithTag)
         {
@@ -74,9 +78,25 @@ public class GameManager : MonoBehaviour
             {
                 if (!maturedFish.Contains(obj))
                 { maturedFish.Add(obj); }
-                
 
+            }
 
+            if (obj == null)
+            {
+                maturedFish.Remove(obj);
+            }
+        }
+    }
+
+    public void CountFish()
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Small_Fish");
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            if (!fish_number_list.Contains(obj))
+            {
+                fish_number_list.Add(obj);
             }
         }
     }

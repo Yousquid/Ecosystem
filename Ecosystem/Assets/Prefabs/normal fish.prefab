@@ -143,7 +143,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.017672896, y: 0.19155312}
@@ -189,11 +189,15 @@ MonoBehaviour:
   Escaping: 0
   Foraging: 0
   fish_spirte: {fileID: 3504110012961208726}
-  mature_sprite: {fileID: 0}
+  mature_sprite: {fileID: 21300000, guid: 6f6267fca84ec914896e5d88f6cfb3d5, type: 3}
   hungry_timer: 13
   food_grow: 0
   Mating: 0
-  rigidbody2D: {fileID: 0}
+  rigidbody2D: {fileID: 3115744658319476739}
   Death: 0
   Mate_Timer: 0
-  maturedFish: []
+  heart: {fileID: 1102025067195477331, guid: 642594c806f4a374fb24b1a28ef16cb6, type: 3}
+  generate_heart: 0
+  offspring: {fileID: 7997747332925345529}
+  offspring_generated: 0
+  original_sprite: {fileID: 21300000, guid: 199012e88f54ae64abcbda9ed42038d7, type: 3}

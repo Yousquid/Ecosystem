@@ -27,16 +27,37 @@ public class SmallFish : MonoBehaviour
     public float food_grow = 0f;
     public bool Mating = false;
     public Rigidbody2D rigidbody2D;
-    public bool Death;
-    public float Mate_Timer;
-   
-   
+    public bool Death = false;
+    public float Mate_Timer = 0;
+    public GameObject heart;
+    public bool generate_heart = false;
+    public GameObject offspring;
+    public bool offspring_generated = false;
+    public Sprite original_sprite;
+    public bool has_mate = false;
     // Start is called before the first frame update
     void Start()
     {
         TimeAlive = 0f;
-        this.transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
+        this.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
         hungry_timer = Random.Range(6f, 12f);
+        gameManager = FindObjectOfType<GameManager>();
+        isMoving = false;
+        Randomed = true;
+        Moved = false;
+        Generated = false;
+        SpeedRandomed = false;
+        Escaping = false;
+        Foraging = false;
+        food_grow = 0f;
+        Mating = false;
+        Death = false;
+        Mate_Timer = 0;
+        generate_heart = false;
+        offspring_generated = false;
+        has_mate = false;
+        fish_spirte.sprite = original_sprite;
+        this.tag = "Small_Fish";
     }
 
     // Update is called once per frame
@@ -48,6 +69,16 @@ public class SmallFish : MonoBehaviour
         HungryTimer();
         GrowUpScale();
         MateAndDeath();
+        Mating_Animation();
+        Death_Land();
+        if (Mate_Timer >= 2.3f)
+        {
+            Destroy(gameObject);
+        }
+        if (has_mate)
+        {
+            Mate_Timer += Time.deltaTime;
+        }
     }
     public Vector3 Randoming_Position ()
     {
@@ -97,21 +128,22 @@ public class SmallFish : MonoBehaviour
         {
             Randomed = false;
         }
-        if (!Randomed && !Foraging && !Escaping && gameManager.mature_fish_count < 2)
+        if (!Randomed && !Foraging && !Escaping && !Mate_Number_Detect())
         {
             Destination = Randoming_Position();
             Randomed = true;
             isMoving = true;
         }
-        if (!Escaping && Foraging && gameManager.mature_fish_count < 2)
+        if (!Escaping && Foraging && !Mate_Number_Detect())
         {
             Destination = Foraging_Find();
             Randomed = true;
             isMoving = true;
         }
-        if (gameManager.mature_fish_count >= 2)
+        if (Mate_Number_Detect() && !Death && Mating)
         {
-            Destination = Mate_Find(); 
+            
+            Destination = FindNearestMate("Mature_Fish").transform.position;
             
             Randomed = true;
             isMoving = true;
@@ -154,6 +186,20 @@ public class SmallFish : MonoBehaviour
 
     }
 
+    public bool Mate_Number_Detect()
+    {
+        if (Mating)
+        {
+            if (FindNearestMate("Mature_Fish") != null)
+            {
+                return true;
+            }
+            else
+            { return false; }
+        }
+        else return false;
+    }
+
     public void TurningFace()
     {
         if (Destination.x > this.transform.position.x)
@@ -177,7 +223,7 @@ public class SmallFish : MonoBehaviour
 
     public Vector3 Mate_Find()
     {
-        GameObject nearestmate = FindNearestMate("Small_Fish");
+        GameObject nearestmate = FindNearestMate("Mature_Fish");
 
         return (nearestmate.transform.position);
 
@@ -201,7 +247,7 @@ public class SmallFish : MonoBehaviour
 
             SmallFish fish = obj.GetComponent<SmallFish>();
 
-            if (fish.Mating)
+            if (fish.Mating && !fish.has_mate)
             {
                
                 float distanceToObj = Vector3.Distance(currentPosition, obj.transform.position);
@@ -258,32 +304,116 @@ public class SmallFish : MonoBehaviour
        
         if (collision.CompareTag("Microalgea"))
         {
-
-            hungry_timer = Random.Range(6f, 12f);
-            food_grow += 0.01f;
-            Foraging = false;
+            if (!Mating)
+            {
+                hungry_timer = Random.Range(6f, 12f);
+                food_grow += 0.01f;
+                Foraging = false;
+            }
+            
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Mate_Timer += Time.deltaTime;
+        if (Mating && collision.gameObject.CompareTag("Mature_Fish"))
+        {
+             has_mate = true;
+           
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+      /*  if (Mating && collision.gameObject.CompareTag("Mature_Fish"))
+        {
+            Mate_Timer = 0;
+        } */
     }
     public void GrowUpScale()
     {
-        this.transform.localScale = new Vector3(0.0008f * TimeAlive + 0.09f + food_grow, 0.0008f * TimeAlive + 0.09f + food_grow, 0.0008f * TimeAlive + 0.09f + food_grow);
+        this.transform.localScale = new Vector3(0.0008f * TimeAlive + 0.05f + food_grow, 0.0008f * TimeAlive + 0.05f + food_grow, 0.0008f * TimeAlive + 0.05f + food_grow);
     }
 
     public void MateAndDeath()
     {
         
 
-        if (this.transform.localScale.x >= 0.1f)
+        if (this.transform.localScale.x >= 0.16f)
         {
             
             fish_spirte.sprite = mature_sprite;
 
+            this.gameObject.tag = "Mature_Fish";
+
+            rigidbody2D.simulated = true;
+
             Mating = true;
+
+           
         }
     }
+
+    IEnumerator GenerateHeartsAtIntervals()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+    }
+    public void Mating_Animation()
+    {
+        if (Mate_Timer > 0f && Mate_Timer < 2f && !generate_heart)
+        {
+            StartCoroutine(GenerateHeartEveryHalfSecond());
+            generate_heart = true;
+        }
+
+        if (Mate_Timer >= 1.7f && !offspring_generated)
+        {
+
+            StopAllCoroutines();
+            if (gameManager.fish_number_limit < 16)
+            {
+                GameObject newobject_one = Instantiate(offspring, this.transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.5f, -0.3f), 0), Quaternion.identity);
+                GameObject newobject_two = Instantiate(offspring, this.transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.5f, -0.3f), 0), Quaternion.identity);
+                newobject_one.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+                newobject_two.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+            }
+           
+           
+            Death = true;
+            offspring_generated = true;
+        }
+
+        
+    }
+
+    IEnumerator GenerateHeartEveryHalfSecond()
+    {
+        while (true) 
+        {
+            Instantiate(heart, this.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    public void Death_Land()
+    {
+        if (Death)
+        {
+            this.transform.rotation = Quaternion.Euler(180f, 0f, 0f);
+            this.transform.position += new Vector3(0, -0.05f, 0f);
+        }
+    }
+
+    public void OnDestroy()
+    {
+        gameManager.fish_number_list.Remove(this.gameObject);
+    }
+
 }
